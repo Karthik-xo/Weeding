@@ -1,0 +1,159 @@
+/*
+ * MinMni Decors — Responsive CSS v3.0
+ */
+
+/* ── SHARED PAGE HEADER offset for fixed navbar ─────────── */
+/* Inner pages use .pt-40 (Tailwind) or .page-header (custom).
+   Both need to clear the fixed navbar. */
+.page-header,
+.pt-40 {
+    padding-top: calc(var(--nav-h) + 2.5rem) !important;
+    padding-bottom: 2.5rem !important;
+}
+
+/* ── EXTRA SMALL < 480px ─────────────────────────────────── */
+@media (max-width: 479px) {
+    :root { --nav-h: 60px; }
+
+    .hero-card h1 { font-size: 2rem; letter-spacing: -.3px; }
+    .hero-card p.italic { font-size: .78rem; letter-spacing: 2px; }
+    .hero-card p.italic::before,
+    .hero-card p.italic::after { width: 32px; margin: 0 7px; }
+    .hero-location { font-size: .68rem; letter-spacing: 3px; }
+
+    .hero-cta { flex-direction: column; gap: .8rem; }
+    .hero-cta .btn-luxury,
+    .hero-cta .btn-outline-luxury { width: 100%; max-width: 260px; }
+
+    .display-3 { font-size: 2.2rem !important; }
+    .display-4 { font-size: 1.9rem !important; }
+    .display-5 { font-size: 1.6rem !important; }
+
+    .section-pad { padding: 3rem 0; }
+
+    .sticky-btn { width: 48px; height: 48px; font-size: 18px; }
+    .sticky-buttons { right: 14px; bottom: 16px; gap: 10px; }
+}
+
+/* ── MOBILE ≤ 767px ──────────────────────────────────────── */
+@media (max-width: 767px) {
+    :root { --nav-h: 65px; }
+
+    /* Hero */
+    .hero-section { background-attachment: scroll !important; }
+    .hero-card h1 { font-size: clamp(1.9rem, 9vw, 2.7rem); }
+    .hero-card p.italic { font-size: .82rem; letter-spacing: 2.5px; }
+    .hero-cta { flex-direction: column; gap: .85rem; margin-top: 1.6rem; }
+    .hero-cta .btn-luxury,
+    .hero-cta .btn-outline-luxury {
+        width: 100%; max-width: 260px;
+        padding: 12px 26px;
+    }
+
+    /* Typography scale */
+    .display-5 { font-size: 1.75rem !important; }
+    .display-4 { font-size: 2rem !important; }
+    .display-3 { font-size: 2.2rem !important; }
+
+    /* Sections */
+    .section-pad { padding: 3.5rem 0; }
+
+    /* Cards */
+    .service-card img { height: 230px; }
+
+    /* Navbar container */
+    .navbar .container { padding-left: .9rem; padding-right: .9rem; }
+
+    /* Footer */
+    footer .col-lg-4,
+    footer .col-lg-2,
+    footer .col-lg-3 { margin-bottom: 1.8rem; }
+
+    /* Forms */
+    .form-control, .form-select {
+        font-size: 16px; /* prevent iOS zoom */
+        min-height: 46px;
+    }
+
+    /* Insta banner */
+    .insta-banner { min-height: 400px; }
+
+    /* Page header on mobile */
+    .page-header, .pt-40 {
+        padding-top: calc(var(--nav-h) + 3rem) !important;
+        padding-bottom: 3rem !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .page-header h1, .page-header p {
+        text-align: center !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* GLightbox Mobile Fix */
+    .gslide-image {
+        max-height: 85vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .gslide-image img {
+        max-width: 100% !important;
+        max-height: 100% !important;
+        height: auto !important;
+        width: auto !important;
+        object-fit: contain !important;
+    }
+    .gcontainer {
+        overflow: hidden !important;
+    }
+}
+
+/* ── TABLET 768–1023px ───────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+    :root { --nav-h: 70px; }
+
+    .hero-card h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+    .hero-section { min-height: 100vh; }
+
+    /* 2-col packages at tablet */
+    .packages-row .col-lg-4 { flex: 0 0 50%; max-width: 50%; }
+    .packages-row .col-lg-4:last-child { flex: 0 0 100%; max-width: 100%; }
+    .packages-row .col-lg-4:last-child > * {
+        max-width: 580px; margin-left: auto; margin-right: auto;
+    }
+
+    .service-card img { height: 250px; }
+}
+
+/* ── DESKTOP ≥ 992px ─────────────────────────────────────── */
+@media (min-width: 992px) {
+    :root { --nav-h: 76px; }
+}
+
+/* ── LARGE DESKTOP ≥ 1400px ──────────────────────────────── */
+@media (min-width: 1400px) {
+    .hero-card h1 { font-size: 5.2rem; }
+    .container { max-width: 1300px; }
+    .service-card img { height: 300px; }
+}
+
+/* ── LANDSCAPE PHONES ────────────────────────────────────── */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section { min-height: 100vw; }
+    .hero-card h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); }
+    .hero-scroll-indicator { display: none; }
+    .hero-cta { margin-top: 1rem; }
+}
+
+/* ── PRINT ───────────────────────────────────────────────── */
+@media print {
+    .navbar, .sticky-buttons, .hero-scroll-indicator { display: none !important; }
+    .hero-section { min-height: unset; background: var(--red) !important; }
+    body { font-size: 12pt; color: #000; }
+}
